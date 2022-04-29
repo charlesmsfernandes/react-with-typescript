@@ -9,13 +9,41 @@ Fundamentos de React: escrevendo com Typescript
 * CSS Module
 * Typescript
 
-### Aula 4
+### Ciclo de vida React
 
-* Adicionar informações externas ao componente com Props;
-* - Aprendemos a utilizar propriedades externas para reutilizar componentes de forma única.
-* Funciona o props.children;
-* - Vimos que o React disponibiliza uma props padrão chamada children, que ao contrário das outras props, é escrita dentro do componente, abrindo e fechando a tag como em uma tag HTML.
-* O key (chaves) é importante em arrays no React;
-* - Entendemos mais a fundo como o React trabalha com arrays, e como o key é importante para que ele não se perca entre os itens deste array.
-* Usar spread operator de forma consciente para passar props para os componentes;
-* - Utilizamos o spread operator para poder passar todos os itens de um objeto como props para o componente, também pensamos como isso pode se tornar um problema.
+* componentWillMount (antes de ser montado)
+* componentDidMount (acabou de ser montado)
+* componentWillUpdate (componente acabou de atualizar)
+* componentWillUnmount (componente vai ser desmontado)
+
+#### ciclo de vida com Function Component
+
+* - useLayoutEffect
+
+```
+ useLayoutEffect(() => {
+    …
+  },[])
+```
+Atua como o componentWillMount, é usado quando você precisa mudar algo visualmente antes do componente aparecer, para que não haja aquele problema da tela piscar assim que a tela carrega.
+
+
+* - useEffect
+
+```
+ useEffect(() => {
+    …
+  }, [])
+```
+Atua como ocomponentDidMount, componentWillUpdate, componentWillUnmount.
+Ele executa assim que o componente é renderizado, sempre executa quando uma variável mudar e para desmontar o component.
+Para desmontar o component existe uma observação, que é retornar uma função dentro do useEffect.
+Dessa forma essa função dentro do return só será executada quando o componente estiver desmontando, exemplo:
+
+```
+useEffect(() => {
+  return () => {
+    …
+  }
+},[])
+```
