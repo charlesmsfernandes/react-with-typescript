@@ -1,4 +1,3 @@
-import React from 'react'
 import Botao from '../Botao';
 import style from './Fomulario.module.scss';
 
@@ -31,7 +30,7 @@ const Formulario = () => {
             required
           />
         </div>
-        <Botao />
+        <Botao>Adicionar</Botao>
       </form>
   )
 }

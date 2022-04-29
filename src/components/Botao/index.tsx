@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 import style from './Botao.module.scss';
 
-const Botao = () => {
+interface Props {
+  children?: React.ReactNode
+}
+
+const Botao = ({children}: Props) => {
   return (
-    <button className={style.botao}>Botao</button>
+    <button className={style.botao}>{children}</button>
   )
 }
 
